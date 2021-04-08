@@ -1,37 +1,116 @@
-## Welcome to GitHub Pages
+# Mintin
 
-You can use the [editor on GitHub](https://github.com/HW-hideonbush/HW.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+mintin 是一个为 hexo 所做的主题。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## [Demo](https://kevinjobs.github.io/)
 
-### Markdown
+![mintin](mintin-preview.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## 安装
 
-```markdown
-Syntax highlighted code block
+### 主题
 
-# Header 1
-## Header 2
-### Header 3
+#### 最新 release 版
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+$ git clone -b master https://github.com/kevinjobs/hexo-theme-mintin.git themes/mintin
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+#### 开发版
 
-### Jekyll Themes
+```bash
+$ git clone -b develop https://github.com/kevinjobs/hexo-theme-mintin.git themes/mintin
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HW-hideonbush/HW.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### 依赖
 
-### Support or Contact
+```bash
+$ npm install --save hexo-auto-category
+$ npm install --save hexo-excerpt
+$ npm install --save hexo-tag-cloud
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## 配置
+
+hexo 有两个配置文件，一个在 hexo 项目的根目录，另一个在主题文件夹的根目录，文件名都是均为 `_config.yml` 。
+
+### 项目配置(位于项目根目录)
+
+```yaml
+theme: mintin
+# 指定语言项可以选择特定语言
+# zh-CN,zh-TW,en,fr
+# 中文简体，中文繁体，英文，法语
+language: en
+
+# hexo-excerpt
+# 自动生成摘要的插件
+# 项请见 https://github.com/chekun/hexo-excerpt
+excerpt:
+  depth: 4
+  excerpt_excludes: ['h1','h2','h3','h4','img','hr','blockquote']
+  more_excludes: []
+  hideWholePostExcerpts: true
+ 
+# 根据目录生成分类的插件 
+# Generate categories from directory-tree
+# 项请见 https://github.com/xu-song/hexo-auto-category
+# depth: the depth of directory-tree you want to generate, should > 0
+auto_category:
+  enable: true
+  depth: 5
+  
+# 标签云插件
+# tags cloud
+# https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md
+tag_cloud:
+  textFont: ''
+  textColour: \#333
+  textHeight: 25
+  outlineColour: \#e2e1d1
+```
+
+### 主题配置（位于主题根目录）
+
+```yaml
+# 自定导航栏 logo
+# Custom nav
+title: "Mint Forge"
+
+# 社交网络帐号
+# Social media
+social:
+  GitHub: ""
+  Weibo: ""
+  Facebook: ""
+  Flickr: ""
+  Tumblr: ""
+
+# 版权信息
+# Custom Copyright
+mail: kevinjobs@qq.com
+copyright: All rights reserved @Kevin JOBS
+
+```
+
+### About 页面（关于页面）
+
+如果需要生成 about 页面，需要在项目根目录的 source 目录下创建一个 about 目录，并在 about 目录下创建一个 index.md 文件，为该文件添加 `layout: page` 属性。此时就可在 `<your_url>/about` 路径访问到 about 页面了。
+
+### Tags 页面（标签页面）
+
+如果需要生成 tags 页面，需要在项目根目录的 source 目录下创建一个 tags 目录，并在 tags 目录下创建一个 index.md 文件，为该文件添加 `layout: tags` 属性。此时就可在 `<your_url>/tags` 路径访问到 tags 页面了。
+
+### Categories 页面（分类页面）
+
+如果需要生成 Categories 页面，需要在项目根目录的 source 目录下创建一个 categories 目录，并在该目录下创建一个 index.md 文件，为该文件添加 `layout: categories` 属性。此时就可在 `<your_url>/categories` 路径访问到 categories 页面了。
+
+## 特性
+
+### 文章目录
+
+自动为文章生成多级目录。
+
+### markdown
+
+使用 GitHub 的 markdown 样式。
