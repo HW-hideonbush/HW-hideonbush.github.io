@@ -1,4 +1,1 @@
-```markdown
-[jump](./单调栈/a.md)
-```
-
+[单调栈](https://hw-hideonbush.github.io/%E5%8D%95%E8%B0%83%E6%A0%88/a.md)
